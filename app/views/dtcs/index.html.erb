@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Dtcs</h1>
+
+<div id="dtcs">
+  <table>
+    <tr>
+      <th>Text</th>
+      <th>PCode (UDS)</th>
+      <th>SPN/FMI(J1939)</th>
+    </tr>
+      <% @dtcs.each do |dtc| %>
+        <%= render dtc %>
+        <%# <p>
+          <%= link_to "Show this dtc", dtc %>
+        <%# </p> %>
+      <% end %>
+  </table>
+</div>
+
+<%= link_to "New dtc", new_dtc_path %>

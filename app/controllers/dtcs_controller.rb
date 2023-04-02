@@ -8,6 +8,7 @@ class DtcsController < ApplicationController
 
   # GET /dtcs/1 or /dtcs/1.json
   def show
+    @dtc = Dtc.find(params[:id])
   end
 
   # GET /dtcs/new

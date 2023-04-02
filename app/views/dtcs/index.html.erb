@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Dtcs</h1>
+
+<div id="dtcs">
+  <% @dtcs.each do |dtc| %>
+    <%= render dtc %>
+    <p>
+      <%= link_to "Show this dtc", dtc %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New dtc", new_dtc_path %>

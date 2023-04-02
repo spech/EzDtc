@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @dtc %>
+
+<div>
+  <%= link_to "Edit this dtc", edit_dtc_path(@dtc) %> |
+  <%= link_to "Back to dtcs", dtcs_path %>
+
+  <%= button_to "Destroy this dtc", @dtc, method: :delete %>
+</div>

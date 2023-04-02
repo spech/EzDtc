@@ -66,6 +66,6 @@ class DtcsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dtc_params
-      params.fetch(:dtc, {})
+      params.require(:dtc).permit(:shortText, :pCode, :spnFmi)
     end
 end

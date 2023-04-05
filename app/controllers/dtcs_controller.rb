@@ -8,7 +8,7 @@ class DtcsController < ApplicationController
 
   # GET /dtcs/1 or /dtcs/1.json
   def show
-    @dtc = Dtc.find(params[:id])
+    
   end
 
   # GET /dtcs/new
@@ -61,7 +61,7 @@ class DtcsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dtc
-      @dtc = Dtc.find(params[:id])
+      @dtc = Dtc.find_by(pCode: params[:pCode])
     end
 
     # Only allow a list of trusted parameters through.

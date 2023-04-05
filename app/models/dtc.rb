@@ -1,6 +1,6 @@
 class Dtc < ApplicationRecord
     validates :shortText, :pCode, :spnFmi, presence: { message: "Cannot create %{model} without %{attribute}" }, uniqueness: true
-validates :shortText, format: { with: /\w{2,}/, message: "ShortText is too short"}
+    validates :shortText, format: { with: /\w{2,}/, message: "ShortText is too short"}
     validate :spn_fmi_format_is_valid
     validate :p_code_format_is_valid
 

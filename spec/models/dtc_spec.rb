@@ -34,7 +34,7 @@ RSpec.describe Dtc, type: :model do
   end
 
   it "is not valid format if ShortText is not a sentence" do
-    dtc = Dtc.new(shortText: "AAnything" ,pCode: "P1234-1A", spnFmi: "1234/3")
+    dtc = Dtc.new(shortText: "A" ,pCode: "P1234-1A", spnFmi: "1234/3")
     expect(dtc).not_to be_valid
   end
 end

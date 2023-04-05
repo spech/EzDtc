@@ -27,7 +27,7 @@ class DtcsController < ApplicationController
     respond_to do |format|
       if @dtc.save
         format.html { redirect_to dtc_url(@dtc.pCode), notice: "Dtc was successfully created." }
-        format.json { render :show, status: :created, location: @dtc }
+        format.json { render :show, status: :created, location: @dtc.pCode }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @dtc.errors, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class DtcsController < ApplicationController
     respond_to do |format|
       if @dtc.update(dtc_params)
         format.html { redirect_to dtc_url(@dtc).pCode, notice: "Dtc was successfully updated." }
-        format.json { render :show, status: :ok, location: @dtc }
+        format.json { render :show, status: :ok, location: @dtc.pCode }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @dtc.errors, status: :unprocessable_entity }

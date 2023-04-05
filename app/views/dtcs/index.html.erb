@@ -11,7 +11,11 @@
     </tr>
       <% @dtcs.each do |dtc| %>
         <%= render dtc %>
+        <td>
+          <%= link_to "Show this dtc", dtc_path(dtc.pCode) %>
+        </td>
       <% end %>
+
   </table>
 </div>
 

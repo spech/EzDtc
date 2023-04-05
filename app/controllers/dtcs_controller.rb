@@ -6,7 +6,7 @@ class DtcsController < ApplicationController
     @dtcs = Dtc.all
   end
 
-  # GET /dtcs/1 or /dtcs/1.json
+  # GET /dtcs/:pCode or /dtcs/:pCode.json
   def show
     
   end
@@ -16,7 +16,7 @@ class DtcsController < ApplicationController
     @dtc = Dtc.new
   end
 
-  # GET /dtcs/1/edit
+  # GET /dtcs/:pCode/edit
   def edit
   end
 
@@ -35,7 +35,7 @@ class DtcsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /dtcs/1 or /dtcs/1.json
+  # PATCH/PUT /dtcs/:pCode or /dtcs/:pCode.json
   def update
     respond_to do |format|
       if @dtc.update(dtc_params)
@@ -48,7 +48,7 @@ class DtcsController < ApplicationController
     end
   end
 
-  # DELETE /dtcs/1 or /dtcs/1.json
+  # DELETE /dtcs/:pCode or /dtcs/:pCode.json
   def destroy
     @dtc.destroy
 

@@ -3,15 +3,19 @@ class DtcsController < ApplicationController
 
   # GET /dtcs or /dtcs.json
   def index
-    @dtcs = Dtc.all
+    if params[:search]
+      @dtcs = Dtc.where("pCode LIKE ?", params[:search])
+    else
+      @dtcs = Dtc.all
+    end
   end
 
   # GET /dtcs/:pCode or /dtcs/:pCode.json
   def show
-    
   end
 
-  # GET /dtcs/new
+
+  # GET /dtcs/news
   def new
     @dtc = Dtc.new
   end

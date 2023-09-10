@@ -3,20 +3,24 @@ class DtcsController < ApplicationController
 
   # GET /dtcs or /dtcs.json
   def index
-    @dtcs = Dtc.all
+    if params[:search]
+      @dtcs = Dtc.where("pCode LIKE ?", params[:search])
+    else
+      @dtcs = Dtc.all
+    end
   end
 
-  # GET /dtcs/1 or /dtcs/1.json
+  # GET /dtcs/:pCode or /dtcs/:pCode.json
   def show
-    @dtc = Dtc.find(params[:id])
   end
 
-  # GET /dtcs/new
+
+  # GET /dtcs/news
   def new
     @dtc = Dtc.new
   end
 
-  # GET /dtcs/1/edit
+  # GET /dtcs/:pCode/edit
   def edit
   end
 
@@ -26,8 +30,8 @@ class DtcsController < ApplicationController
 
     respond_to do |format|
       if @dtc.save
-        format.html { redirect_to dtc_url(@dtc), notice: "Dtc was successfully created." }
-        format.json { render :show, status: :created, location: @dtc }
+        format.html { redirect_to dtc_url(@dtc.pCode), notice: "Dtc was successfully created." }
+        format.json { render :show, status: :created, location: @dtc.pCode }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @dtc.errors, status: :unprocessable_entity }
@@ -35,12 +39,12 @@ class DtcsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /dtcs/1 or /dtcs/1.json
+  # PATCH/PUT /dtcs/:pCode or /dtcs/:pCode.json
   def update
     respond_to do |format|
       if @dtc.update(dtc_params)
-        format.html { redirect_to dtc_url(@dtc), notice: "Dtc was successfully updated." }
-        format.json { render :show, status: :ok, location: @dtc }
+        format.html { redirect_to dtc_url(@dtc).pCode, notice: "Dtc was successfully updated." }
+        format.json { render :show, status: :ok, location: @dtc.pCode }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @dtc.errors, status: :unprocessable_entity }
@@ -48,7 +52,7 @@ class DtcsController < ApplicationController
     end
   end
 
-  # DELETE /dtcs/1 or /dtcs/1.json
+  # DELETE /dtcs/:pCode or /dtcs/:pCode.json
   def destroy
     @dtc.destroy
 
@@ -61,7 +65,7 @@ class DtcsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dtc
-      @dtc = Dtc.find(params[:id])
+      @dtc = Dtc.find_by(pCode: params[:pCode])
     end
 
     # Only allow a list of trusted parameters through.
